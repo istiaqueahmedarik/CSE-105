@@ -24,6 +24,8 @@
   "C_Cpp.errorSquiggles": "disabled",
   "files.associations": {
     "*html": "html",
-    "modClock.C": "cpp"
+    "modClock.C": "cpp",
+    "stdio.h": "c",
+    "typeinfo": "c"
   }
 }
