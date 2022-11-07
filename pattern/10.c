@@ -4,11 +4,10 @@ int main()
 {
     int n;
     scanf("%d", &n);
-    int x = 1;
     for (int i = 0; i <= n; i++)
     {
         int num = 1;
-
+        int val = 0;
         for (int j = 0; j <= n - i; j++)
         {
             printf("  ");
@@ -16,21 +15,15 @@ int main()
         for (int k = 0; k <= i; k++)
         {
 
-            int nFac = 1, rFac = 1, NRfac = 1;
-            for (int j = i; j > 0; j--)
+            if (i == 0 || k == 0)
             {
-                nFac *= j;
+                val = 1;
             }
-            for (int j = k; j > 0; j--)
+            else
             {
-                rFac *= j;
+                val = val * (i - k + 1) / k;
             }
-            for (int j = i - k; j > 0; j--)
-            {
-                NRfac *= j;
-            }
-            int ans = nFac / (rFac * NRfac);
-            printf("%5.d", ans);
+            printf("%5d", val);
         }
 
         printf("\n");
