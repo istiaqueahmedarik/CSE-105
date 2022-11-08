@@ -19,7 +19,12 @@ int main()
         {
             printf(" ");
         }
-        printf("%d", number % d);
+        int temp = number % d;
+        while (temp != 0)
+        {
+            printf("%d", temp % 10);
+            temp /= 10;
+        }
         d *= 10;
         x++;
 
