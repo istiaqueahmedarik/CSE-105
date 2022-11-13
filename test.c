@@ -1,13 +1,38 @@
 #include <stdio.h>
-int main(int argc, char const *argv[])
+int main()
 {
-    int t, s, a;
-    scanf("%d", &t);
-    while (t--)
+    int n;
+    scanf("%d", &n);
+    for (int i = 0; i <= n; i++)
     {
-        scanf("%d", &s);
-        a = s / 5 + s / 25;
-        printf("%d\n", a);
+        for (int j = n - i - 1; j >= 0; j--)
+        {
+            printf("  ");
+        }
+        for (int j = 0; j <= i; j++)
+        {
+            printf("%d ", j);
+        }
+        for (int j = i - 1; j >= 0; j--)
+        {
+            printf("%d ", j);
+        }
+        printf("\b\n");
     }
-    return 0;
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = i; j >= 0; j--)
+        {
+            printf("  ");
+        }
+        for (int j = 0; j <= n - i - 1; j++)
+        {
+            printf("%d ", j);
+        }
+        for (int j = n - i - 2; j >= 0; j--)
+        {
+            printf("%d ", j);
+        }
+        printf("\b\n");
+    }
 }

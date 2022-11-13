@@ -35,6 +35,7 @@
     "stdio.h": "c",
     "typeinfo": "c",
     "type_traits": "c",
-    "team.C": "cpp"
+    "team.C": "cpp",
+    "math.h": "c"
   }
 }
