@@ -14,7 +14,7 @@ int main()
         }
 
         int new[101];
-        for (int i = 0; i <= max; i++)
+        for (int i = 0; i < 101; i++)
         {
             new[i] = 0;
         }
@@ -22,11 +22,12 @@ int main()
         {
             new[arr[i]]++;
         }
-        for (int i = 0; i <= n; i++)
+        for (int i = 0; i < n; i++)
         {
             if (new[arr[i]] == 1)
             {
                 printf("%d\n", i + 1);
+                break;
             }
         }
     }

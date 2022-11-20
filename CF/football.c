@@ -5,21 +5,39 @@ int main()
 {
     int n;
     scanf("%d", &n);
-    int arr[100] = {0};
-    for (int i = 0; i <= n; i++)
+    fgetc(stdin);
+    char main[n];
+    int first = 1;
+    int sec = 0;
+    char f[15];
+    char s[15];
+    fgets(f, 15, stdin);
+    f[strlen(f) - 1] = 0;
+    for (int i = 0; i < n - 1; i++)
     {
-        char c[10];
-        fgets(c, 10, stdin);
-        for (int j = 0; j < strlen(c); j++)
+        char c[15];
+        fgets(c, 15, stdin);
+        c[strlen(c) - 1] = 0;
+        if (strcmp(f, c) == 0)
         {
-            arr[c[j]]++;
+            first++;
+        }
+        else
+        {
+            strcpy(s, c);
+            sec++;
         }
     }
-    int max = 0;
-    int ans = 0;
-    for (int k = 65; k <= 90; k++)
+    if (first > sec)
     {
-        printf("%c %d ", k, arr[k]);
+        printf("%s\n", f);
     }
-    printf("%d\n", ans);
+    else if (first == 1 && sec == 0)
+    {
+        printf("%s\n", f);
+    }
+    else
+    {
+        printf("%s\n", s);
+    }
 }

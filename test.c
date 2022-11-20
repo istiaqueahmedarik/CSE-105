@@ -1,38 +1,36 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 int main()
 {
-    int n;
-    scanf("%d", &n);
-    for (int i = 0; i <= n; i++)
+    int t;
+    scanf("%d", &t);
+
+    while (t--)
     {
-        for (int j = n - i - 1; j >= 0; j--)
+        int n;
+        scanf("%d", &n);
+        fgetc(stdin);
+        int arr[100] = {0};
+        for (int i = 0; i < n; i++)
         {
-            printf("  ");
+            char inp[100];
+            fgets(inp, 100, stdin);
+            char x = inp[0];
+            arr[x]++;
         }
-        for (int j = 0; j <= i; j++)
+        int j;
+        for (j = 97; j <= 122; j++)
         {
-            printf("%d ", j);
+            if (arr[j] == 3)
+            {
+                printf("%c\n", j);
+                break;
+            }
         }
-        for (int j = i - 1; j >= 0; j--)
+        if (j == 123)
         {
-            printf("%d ", j);
+            printf("impossible\n");
         }
-        printf("\b\n");
-    }
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = i; j >= 0; j--)
-        {
-            printf("  ");
-        }
-        for (int j = 0; j <= n - i - 1; j++)
-        {
-            printf("%d ", j);
-        }
-        for (int j = n - i - 2; j >= 0; j--)
-        {
-            printf("%d ", j);
-        }
-        printf("\b\n");
     }
 }
