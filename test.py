@@ -1,2 +1,5 @@
-a = input().split(" + ");
-print(int(a[0])+int(a[1]));
+test = int(input())
+while(test>0):
+    s = input()
+    print(s+s[::-1])
+    test = test-1
