@@ -1,9 +1,12 @@
 #include <stdio.h>
+struct Course
+{
+    char name[];
+    int price;
+};
+
 int main()
 {
-    int x = 10, *ptr;
-    ptr = &x;
-    *ptr += 2;
-    printf("%d, %d", *ptr, x);
+    struct Course c1 = {"C Programming", 5000};
     return 0;
 }
