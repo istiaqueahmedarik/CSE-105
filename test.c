@@ -1,40 +1,42 @@
 #include <stdio.h>
+int f(int n)
+{
+    if (n == 1)
+        return 1;
+    else
+    {
+        return n * n + f(n - 1);
+    }
+}
+int f1(int n)
+{
+    if (n == 1)
+        return 1;
+    else
+    {
+        if (n % 2 == 0)
+        {
+            return f1(n - 1) - n;
+        }
+        else
+        {
+            return n + f1(n - 1);
+        }
+    }
+}
+int f2(int n)
+{
+    if (n == 1)
+        return 1;
+    if (n == 0)
+        return 0;
+    return f2(n - 1) + f2(n - 2);
+}
 int main()
 {
-    int n, i, j, x, y, z;
+    int n;
     scanf("%d", &n);
-    x = n;
-    y = n + 1;
-    z = n + 1;
-    for (i = 1; i <= n; i++)
-    {
-        if (i > 2)
-        {
-            x--;
-        }
-        for (j = 1; j <= x; j++)
-        {
-            printf("%d", j);
-        }
-        if (i > 1)
-        {
-            for (j = 1; j <= i - 1; j++)
-            {
-                printf(" ");
-            }
-        }
-
-        for (j = 1; j <= z; j++)
-        {
-            printf("%d", y);
-            y--;
-        }
-        z--;
-        y = z;
-        printf("\n");
-    }
-    for (i = 1; i <= n + 1; i++)
-    {
-    }
-    return 0;
+    printf("%d\n", f(n));
+    printf("%d\n", f1(n));
+    printf("%d\n", f2(n));
 }
