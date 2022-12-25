@@ -1,65 +1,40 @@
 #include <stdio.h>
-
-#define N 200010
-
 int main()
 {
-    int n, a[N], b[N], c[N], d[N];
+    int n, i, j, x, y, z;
     scanf("%d", &n);
-
-    for (int i = 0; i < n; i++)
+    x = n;
+    y = n + 1;
+    z = n + 1;
+    for (i = 1; i <= n; i++)
     {
-        scanf("%d", &a[i]);
-    }
-
-    for (int i = 0; i < n; i++)
-    {
-        scanf("%d", &b[i]);
-    }
-
-    for (int i = 0; i < n + 1; i++)
-    {
-        c[i] = 0;
-        d[i] = 0;
-    }
-
-    for (int i = 0; i < n; i++)
-    {
-        c[a[i]]++;
-        d[b[i]]++;
-    }
-
-    for (int i = 0; i < n + 1; i++)
-    {
-        if (c[i] + d[i] > n)
+        if (i > 2)
         {
-            printf("No\n");
-            return 0;
+            x--;
         }
-    }
-
-    for (int i = 1; i <= n; i++)
-    {
-        c[i] += c[i - 1];
-        d[i] += d[i - 1];
-    }
-
-    int x = 0;
-    for (int i = 1; i <= n; i++)
-    {
-        x = (c[i] - d[i - 1] > x) ? c[i] - d[i - 1] : x;
-    }
-
-    printf("Yes\n");
-    for (int i = 0; i < n; i++)
-    {
-        if (i)
+        for (j = 1; j <= x; j++)
         {
-            printf(" ");
+            printf("%d", j);
         }
-        printf("%d", b[(i + n - x) % n]);
-    }
-    printf("\n");
+        if (i > 1)
+        {
+            for (j = 1; j <= i - 1; j++)
+            {
+                printf(" ");
+            }
+        }
 
+        for (j = 1; j <= z; j++)
+        {
+            printf("%d", y);
+            y--;
+        }
+        z--;
+        y = z;
+        printf("\n");
+    }
+    for (i = 1; i <= n + 1; i++)
+    {
+    }
     return 0;
 }

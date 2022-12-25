@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/coding/C_problem/Class/c4",
-      "program": "d:/coding/C_problem/Class/c4/build/Debug/outDebug",
+      "cwd": "d:/coding/C_problem",
+      "program": "d:/coding/C_problem/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
