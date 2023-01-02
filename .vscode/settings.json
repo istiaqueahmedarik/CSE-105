@@ -6,13 +6,20 @@
   "C_Cpp_Runner.cppStandard": "",
   "C_Cpp_Runner.msvcBatchPath": "",
   "C_Cpp_Runner.useMsvc": false,
-  "C_Cpp_Runner.warnings": ["-Wall", "-Wextra", "-Wpedantic"],
+  "C_Cpp_Runner.warnings": [
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic"
+  ],
   "C_Cpp_Runner.enableWarnings": true,
   "C_Cpp_Runner.warningsAsError": false,
   "C_Cpp_Runner.compilerArgs": [],
   "C_Cpp_Runner.linkerArgs": [],
   "C_Cpp_Runner.includePaths": [],
-  "C_Cpp_Runner.includeSearch": ["*", "**/*"],
+  "C_Cpp_Runner.includeSearch": [
+    "*",
+    "**/*"
+  ],
   "C_Cpp_Runner.excludeSearch": [
     "**/build",
     "**/build/**",
@@ -37,6 +44,18 @@
     "iostream": "cpp",
     "bitset": "c",
     "chrono": "c",
-    "algorithm": "c"
+    "algorithm": "c",
+    "*.tcc": "cpp",
+    "array": "cpp",
+    "deque": "cpp",
+    "forward_list": "cpp",
+    "list": "cpp",
+    "string": "cpp",
+    "unordered_map": "cpp",
+    "unordered_set": "cpp",
+    "vector": "cpp",
+    "initializer_list": "cpp",
+    "regex": "cpp",
+    "valarray": "cpp"
   }
 }
