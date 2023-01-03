@@ -1,33 +1,24 @@
 #include <stdio.h>
-int init(int i, int n)
+void print(int i, int j)
 {
-    if (n == 0)
-        return i;
-    return (i + 1, n - 1);
+    if (i == 0)
+        return;
+    printf("%d ", j % 2);
+    print(i - 1, j + 1);
 }
-void print(int n, int i)
+void pattern(int n, int i, int j)
 {
-    if (n == 0)
+    if (i > n)
         return;
-    if (n == 1)
-    {
-        printf("1");
-        return;
-    }
-    printf("%d ", i);
-    print(n - 1, i + 1);
-}
-void pattern(int n, int start)
-{
-    if (start > n)
-        return;
-    printf
-        pattern(n, start + 1);
+
+    j = j + i - 1;
+    print(i, j);
     printf("\n");
+    pattern(n, i + 1, j);
 }
 int main()
 {
     int n;
     scanf("%d", &n);
-    pattern(n, 1);
+    pattern(n, 1, 1);
 }
