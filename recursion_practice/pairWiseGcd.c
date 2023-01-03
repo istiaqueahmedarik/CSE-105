@@ -5,11 +5,11 @@ int gcd(int a, int b)
         return a;
     return gcd(b, a % b);
 }
-void pairwise(int arr[], int *pair, int n, int l, int r)
+void pairwise(int arr[], int pair[], int n, int l, int r)
 {
     if (r > n)
         return;
-    *(pair + l) = gcd(arr[l], arr[r]);
+    pair[l] = gcd(arr[l], arr[r]);
     pairwise(arr, pair, n, l + 1, r + 1);
 }
 int main()

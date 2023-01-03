@@ -1,26 +1,19 @@
 #include <stdio.h>
-void print(int n)
+int maxm(int arr[], int n, int max)
 {
-    if (n == 0)
-        return;
-    print(n - 1);
-    printf("%d ", n);
+    if (n < 0)
+        return max;
+    if (arr[n - 1] > max)
+        max = arr[n - 1];
+    return maxm(arr, n - 1, max);
 }
-void pattern(int n)
-{
-    if (n == 0)
-        return;
-    else
-    {
-        pattern(n - 1);
-        print(n);
-        printf("\n");
-    }
-}
-
 int main()
 {
     int n;
     scanf("%d", &n);
-    pattern(n);
+    int arr[n];
+    for (int i = 0; i < n; i++)
+        scanf("%d", &arr[i]);
+    int ans = maxm(arr, n, arr[0]);
+    printf("%d\n", ans);
 }
