@@ -1,19 +1,25 @@
 #include <stdio.h>
-int maxm(int arr[], int n, int max)
+#include <string.h>
+#pragma pack(1)
+struct Student
 {
-    if (n < 0)
-        return max;
-    if (arr[n - 1] > max)
-        max = arr[n - 1];
-    return maxm(arr, n - 1, max);
+    char name[100];
+    int id;
+    int age;
+};
+void sE(char s1[], char s2[])
+{
+    int i = 0;
+    while (s2[i] != '\0')
+    {
+        s1[i] = s2[i];
+        i++;
+    }
 }
 int main()
 {
-    int n;
-    scanf("%d", &n);
-    int arr[n];
-    for (int i = 0; i < n; i++)
-        scanf("%d", &arr[i]);
-    int ans = maxm(arr, n, arr[0]);
-    printf("%d\n", ans);
+    char s1[100];
+    char s2[100] = "arik";
+    sE(s1, s2);
+    printf("%s", s1);
 }

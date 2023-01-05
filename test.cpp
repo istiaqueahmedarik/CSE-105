@@ -1,25 +1,36 @@
-#include<bits/stdc++.h>
+#include <iostream>
+#include <cmath>
+
 using namespace std;
+
 int main()
 {
     int t;
-    cin>>t;
+    cin >> t; // read the number of test cases
+
     while (t--)
-    {
-        long long n;
-        cin>>n;
-        long long rate = 3;
-        long long sat = 1;
-        long long ans = 1;
-        while (sat != n * n)
+    { // for each test case
+        int n, k;
+        cin >> n >> k;
+
+        int p[n];
+        for (int i = 0; i < n; i++)
         {
-            long long prev = sat;
-            sat += rate;
-            ans += sat + (prev + sat) / 2;
-            rate += 2;
+            cin >> p[i];
         }
-        long long int y = (2022 * ans);
-        long long int x = y%1000000007;
-        cout<< x<<"\n";
+
+        int out_of_place = 0;
+        for (int i = 0; i < n; i++)
+        {
+            if (p[i] != i + 1)
+            {
+                out_of_place++;
+            }
+        }
+
+        // ceil(out_of_place / k) is the minimum number of operations needed
+        cout << ceil(out_of_place / (double)k) << endl;
     }
+
+    return 0;
 }
