@@ -1,20 +1,18 @@
-def min_ops_to_sort(arr):
-    ops = 0
-    i = 0
-    while i < len(arr):
-        ops += 1
-        i = index_of_first_element_not_in_correct_position(arr)
-        if i == -1:
-            break
-        # Perform the operation to move the elements at indices i, i+1, ..., len(arr)-1 to the end of the array
-        arr[i:] = sorted(arr[i:])
-    return ops
+def recover_names(string):
+    if len(string) < 3:
+        return ":("
+    min_char = min(string)
+    min_index = string.index(min_char)
+    name1 = string[:min_index]
+    name2 = string[min_index:]
+    if (name1 <= name2) and (name1 <= recover_names(name2)):
+        return name1 + " " + name2 + " " + recover_names(name2)
+    name3 = recover_names(name2)
+    if (name2 <= name3) and (name2 <= name1):
+        return name2 + " " + name3 + " " + name1
+    return ":("
 
-def index_of_first_element_not_in_correct_position(arr):
-    for i in range(len(arr)):
-        if arr[i] != i + 1:
-            return i
-    return -1
-
-# Test the solution
-print(min_ops_to_sort([3, 1, 2]))  # Output: 1
+num_tests = int(input())
+for i in range(num_tests):
+    string = input()
+    print(recover_names(string))
