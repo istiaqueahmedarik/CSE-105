@@ -1,46 +1,36 @@
+// C++ code to implement the approach
+
 #include <bits/stdc++.h>
 using namespace std;
-int checker(string sub1, string sub3, string sub2)
+
+// Function to find the count of pairs
+int getPairsCount(int arr[], int n, int k)
 {
-    if (lexicographical_compare(sub1.begin(), sub1.end(), sub3.begin(), sub3.end()) && lexicographical_compare(sub2.begin(), sub2.end(), sub3.begin(), sub3.end()))
+    sort(arr, arr + n);
+    int x = 0, c = 0, y, z;
+    for (int i = 0; i < n - 1; i++)
     {
-        return 1;
+        x = k - arr[i];
+
+        // Lower bound from i+1
+        int y = lower_bound(arr + i + 1, arr + n, x) - arr;
+
+        // Upper bound from i+1
+        int z = upper_bound(arr + i + 1, arr + n, x) - arr;
+        c = c + z - y;
     }
-    else if (lexicographical_compare(sub1.begin(), sub1.end(), sub3.begin(), sub3.end()) == false && lexicographical_compare(sub2.begin(), sub2.end(), sub3.begin(), sub3.end()) == false)
-    {
-        return 1;
-    }
-    return 0;
+    return c;
 }
+
+// Driver code
 int main()
 {
-    int t;
-    cin >> t;
-    while (t--)
-    {
-        string s;
-        cin >> s;
-        string sub1, sub2, sub3;
-        int flag = 0;
-        int i = 1;
-        int j = s.size() - 2;
-        while (i <= j)
-        {
-            sub1 = s.substr(0, i);
-            sub2 = s.substr(j + 1, s.size() - j);
-            sub3 = s.substr(i, j);
-            i++;
-            j--;
-            if (checker(sub1, sub3, sub2) == 1)
-            {
-                flag = 1;
-                break;
-            }
-            cout << sub1 << " " << sub3 << " " << sub2 << "\n";
-        }
-        if (flag == 0)
-            cout << ":(\n";
-        else
-            cout << sub1 << " " << sub3 << " " << sub2 << "\n";
-    }
+    int arr[] = {6, 1, 3, 2, 4};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int k = 5;
+
+    // Function call
+    cout << "Count of pairs is "
+         << getPairsCount(arr, n, k);
+    return 0;
 }
