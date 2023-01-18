@@ -1,1 +1,1 @@
-cout << "Case " << i << ": " << min(v.begin(), v.end()) << " " << max(v.begin(), v.end()) << " " << max(v.begin(), v.end()) - min(v.begin(), v.end()) << "\n";
++ m

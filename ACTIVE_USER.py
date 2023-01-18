@@ -3,8 +3,8 @@ import time
 
 import requests
 
-key = "d7b01d728499db18d8fa857a97e6e0fba165b59d"
-secret = "ca7b5dd3f69c2c7e9a27ed8c0f52d5e8f1fa6eca"
+key = "***"
+secret = "***"
 
 rand = "123456"
 

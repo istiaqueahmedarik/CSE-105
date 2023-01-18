@@ -4,48 +4,34 @@ int main()
 {
     int n;
     cin >> n;
-    vector<pair<int, int>> v(n + 1, {0, 0});
-    for (int i = 1; i <= n; i++)
+    vector<int> v(n);
+    vector<int> available(n + 1, 0);
+    vector<int> none;
+    for (int i = 0; i < n; i++)
     {
-        int x;
-        cin >> x;
-        v[i].first = x;
-        v[x].second = i;
+        cin >> v[i];
+        available[v[i]] = 1;
     }
     for (int i = 1; i <= n; i++)
     {
-        if (v[i].first == 0 && v[i].second == 0)
+        if (available[i] == 0)
         {
-            for (int j = 1; j < v.size(); j++)
-            {
-                if (v[j].first == 0 && i != j)
-                {
-                    v[i].second = j;
-                    v[j].first = i;
-                    break;
-                }
-            }
+            none.push_back(i);
         }
     }
-
-    for (int i = 1; i <= n; i++)
+    int k = 0;
+    for (int i = 0; i < n; i++)
     {
-        if (v[i].second == 0)
+        if (v[i] == 0)
         {
-            for (int j = 1; j < v.size(); j++)
+            if (none.size() > 1)
             {
-                if (v[j].first == 0 && i != j)
-                {
-                    v[i].second = j;
-                    v[j].first = i;
-                    break;
-                }
+                none[]
             }
         }
-    }
-
-    for (int i = 1; i < v.size(); i++)
-    {
-        cout << v[i].first << " ";
+        else
+        {
+            cout << v[i] << " ";
+        }
     }
 }
