@@ -11,9 +11,9 @@ int main()
         int arr[2 * n];
         for (int i = 0; i < 2 * n; i++)
             cin >> arr[i];
-        sort(arr, arr + n);
-        int i = 0, j = 2 * n - 1, flag = 0;
+        sort(arr, arr + 2 * n);
 
+        int i = 0, j = 2 * n - 1, flag = 0;
         while (i <= j)
         {
 
