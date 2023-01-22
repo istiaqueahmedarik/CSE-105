@@ -1,22 +1,33 @@
 #include <stdio.h>
+
 int main()
 {
-    int n, r, n1 = 1, r1 = 1, NR = 1;
-    scanf("%d %d", &n, &r);
+    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int n = 10;
+    int x = 6;
 
-    int res = (n - r);
+    int left = 0;
+    int right = n - 1;
+    int mid;
 
-    for (int i = n; i >= 1; i--) // n!
+    while (left <= right)
     {
-        n1 *= i;
+        mid = (left + right) / 2;
+        if (arr[mid] == x)
+        {
+            printf("%d\n", mid);
+            return 0;
+        }
+        else if (arr[mid] < x)
+        {
+            left = mid + 1;
+        }
+        else
+        {
+            right = mid - 1;
+        }
     }
-    for (int i = r; i >= 1; i--) // r!
-    {
-        r1 *= i;
-    }
-    for (int i = res; i >= 1; i--) //(n-r)!
-    {
-        NR *= i;
-    }
-    printf("%d %d %d %d", n1, r1, NR, (n1 / (r1 * NR)));
+
+    printf("not found\n");
+    return 0;
 }

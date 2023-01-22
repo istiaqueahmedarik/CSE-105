@@ -1,23 +1,19 @@
-import hashlib
-import time
+MOD = int(1e9) + 7
 
-import requests
+def beauty(n):
+    dp = [0] * (n+1)
+    dp[0] = 1
+    dp[1] = 0
+    for i in range(2, n+1):
+        dp[i] = dp[i-1] * (i-1) % MOD
+    
+    ans = 0
+    for i in range(n):
+        ans += (i * (i+1) // 2) * dp[n-i-1]
+        ans %= MOD
+    return ans
 
-key = "d7b01d728499db18d8fa857a97e6e0fba165b59d"
-secret = "ca7b5dd3f69c2c7e9a27ed8c0f52d5e8f1fa6eca"
-
-rand = "123456"
-
-method = "user.friends"
-params = {"onlyOnline": True, "apiKey": key, "time": int(time.time())}
-
-sorted_params = "&".join(sorted(["{}={}".format(k, v) for k, v in params.items()]))
-
-message = "{}/{}?{}#{}".format(rand, method, sorted_params, secret)
-apiSig = rand + hashlib.sha512(message.encode()).hexdigest()
-
-params["apiSig"] = apiSig
-
-response = requests.get("https://codeforces.com/api/{}".format(method), params=params)
-
-print(response.json())
+t = int(input())
+for c in range(t):
+    n = int(input())
+    print(beauty(n))
