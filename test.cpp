@@ -1,22 +1,9 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
-int main()
-{
-    int t;
-    cin >> t;
-    while (t--)
-    {
-        long long n;
-        cin >> n;
-        long long result = (n * (n - 1)) % 1000000007;
-        for (long long i = n; i >= 1; i--)
-        {
-            result = (result * i) % 1000000007;
-        }
-        long long r = (result) % 1000000007;
-        cout << (r) << "\n";
-    }
-
+int main() {
+    vector<int> a(2);
+    a[2 - 1] = 2;
+    cout << a[0] << '\n';
     return 0;
 }

@@ -1,33 +1,20 @@
 #include <stdio.h>
-
 int main()
 {
-    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    int n = 10;
-    int x = 6;
+    float x[4] = {5, 10, 15, 20};
+    float *p, *q, *r;
+    p = &x[2];
+    r = p - 1;
+    *r = *r + 10;
+    q = r + 1;
+    *q = *q + 10;
+    p = p - 1;
+    *p = p[1] - 20 + p[-1];
+    printf("%f\n", x[0]);
 
-    int left = 0;
-    int right = n - 1;
-    int mid;
+    printf("%f\n", x[1]);
 
-    while (left <= right)
-    {
-        mid = (left + right) / 2;
-        if (arr[mid] == x)
-        {
-            printf("%d\n", mid);
-            return 0;
-        }
-        else if (arr[mid] < x)
-        {
-            left = mid + 1;
-        }
-        else
-        {
-            right = mid - 1;
-        }
-    }
+    printf("%f\n", x[2]);
 
-    printf("not found\n");
-    return 0;
+    printf("%f\n", x[3]);
 }
