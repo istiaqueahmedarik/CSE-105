@@ -1,19 +1,21 @@
-MOD = int(1e9) + 7
-
-def beauty(n):
-    dp = [0] * (n+1)
-    dp[0] = 1
-    dp[1] = 0
-    for i in range(2, n+1):
-        dp[i] = dp[i-1] * (i-1) % MOD
-    
-    ans = 0
-    for i in range(n):
-        ans += (i * (i+1) // 2) * dp[n-i-1]
-        ans %= MOD
-    return ans
+def max_gcd(n, a):
+    prefix_sum = [0]*(n+1)
+    for i in range(1,n+1):
+        prefix_sum[i] = prefix_sum[i-1] + a[i-1]
+    dp = [[0]*(n+1) for _ in range(n+1)]
+    for i in range(1,n+1):
+        dp[i][1] = prefix_sum[i]
+    for i in range(1,n+1):
+        for j in range(2,i+1):
+            a = dp[i-1][j-1]
+            b = prefix_sum[i]-prefix_sum[i-j]
+            while b:
+                a, b = b, a % b
+            dp[i][j] = a
+    return max(dp[n])
 
 t = int(input())
-for c in range(t):
+for _ in range(t):
     n = int(input())
-    print(beauty(n))
+    a = list(map(int, input().split()))
+    print(max_gcd(n, a))
