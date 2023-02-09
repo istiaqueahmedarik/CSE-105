@@ -1,16 +1,17 @@
-#include <iostream>
+#include <bits/stdc++.h>
+#define int long long
+#define endl '\n'
+#define IOS                  \
+    ios::sync_with_stdio(0); \
+    cin.tie(0);              \
+    cout.tie(0);
 
 using namespace std;
-template <typename INT, typename FLOAT>
-FLOAT Sum(INT p, FLOAT q)
+int32_t main()
 {
-    return p + q;
-}
-int main()
-{
-    int x = 55;
-    float result, y = 60.55;
-    result = Sum<int, float>(x, y);
-    cout << result << endl;
+    IOS;
+    int t;
+    cin >> t;
+    cout << (111 + 010) << endl;
     return 0;
 }
