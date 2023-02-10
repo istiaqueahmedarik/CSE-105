@@ -3,36 +3,23 @@
 
 void summ(char s1[], char s2[], char sum[])
 {
-    int len1 = strlen(s1);
-    int len2 = strlen(s2);
-    int maxL = {len1 > len2 ? len1 : len2};
-    sum[maxL] = '\0';
-    int carry = 0;
-    int num1, num2;
-    for (int i = maxL - 1; i >= 0; i--)
+    int mL = strlen(s1) > strlen(s2) ? strlen(s1) : strlen(s2);
+    int i, j, k, carry = 0;
+    for (i = strlen(s1) - 1, j = strlen(s2) - 1, k = 0; k < mL; i--, j--, k++)
     {
-        int s = 0;
-        if (len1 != 0)
-            num1 = s1[len1 - 1] - 48;
-        if (len2 != 0)
-            num2 = s2[len2 - 1] - 48;
-        int temp = num1 + num2 + carry;
-        if (temp / 10 == 0)
-        {
-            carry = 0;
-            s = temp;
-        }
-        else
-        {
-            carry = temp / 10;
-            s = temp % 10;
-        }
-        sum[i] = s + 48;
-
-        num1 = 0;
-        num2 = 0;
-        len1--;
-        len2--;
+        int a = i >= 0 ? s1[i] - '0' : 0;
+        int b = j >= 0 ? s2[j] - '0' : 0;
+        sum[k] = (a + b + carry) % 10 + '0';
+        carry = (a + b + carry) / 10;
+    }
+    if (carry)
+        sum[k++] = carry + '0';
+    sum[k] = '\0';
+    for (i = 0, j = k - 1; i < j; i++, j--)
+    {
+        char t = sum[i];
+        sum[i] = sum[j];
+        sum[j] = t;
     }
 }
 int main()
