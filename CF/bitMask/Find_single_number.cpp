@@ -11,7 +11,17 @@ int32_t main()
 {
     IOS;
     int n;
-    int x = 2 ^ 3 ^ 4 ^ 5;
-    cout << x << endl;
+    cin >> n;
+    int a[n];
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a[i];
+    }
+    int ans = 0;
+    for (int i = 0; i < n; i++)
+    {
+        ans ^= a[i];
+    }
+    cout << ans << endl;
     return 0;
 }

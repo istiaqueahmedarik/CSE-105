@@ -11,7 +11,14 @@ int32_t main()
 {
     IOS;
     int n;
-    int x = 2 ^ 3 ^ 4 ^ 5;
-    cout << x << endl;
+    cin >> n;
+    if (n % 4 == 0)
+        cout << n << endl;
+    else if (n % 4 == 1)
+        cout << 1 << endl;
+    else if (n % 4 == 2)
+        cout << n + 1 << endl;
+    else
+        cout << 0 << endl;
     return 0;
 }

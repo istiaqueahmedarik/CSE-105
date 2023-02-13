@@ -11,7 +11,13 @@ int32_t main()
 {
     IOS;
     int n;
-    int x = 2 ^ 3 ^ 4 ^ 5;
-    cout << x << endl;
+    cin >> n;
+    int count = 0;
+    while (n)
+    {
+        n = n & (n - 1);
+        count++;
+    }
+    cout << count << endl;
     return 0;
 }

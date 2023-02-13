@@ -10,8 +10,8 @@ using namespace std;
 int32_t main()
 {
     IOS;
-    int n;
-    int x = 2 ^ 3 ^ 4 ^ 5;
-    cout << x << endl;
+    int n, i;
+    cin >> n >> i;
+    cout << ((n & (1 << i)) >> i) << endl;
     return 0;
 }

@@ -1,0 +1,1 @@
+{"name":"Local: count_set_bit","url":"d:\\coding\\C_problem\\CF\\bitMask\\count_set_bit.cpp","tests":[{"id":1676008671465,"input":"10","output":"2"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\coding\\C_problem\\CF\\bitMask\\count_set_bit.cpp","group":"local","local":true}

@@ -11,7 +11,10 @@ int32_t main()
 {
     IOS;
     int n;
-    int x = 2 ^ 3 ^ 4 ^ 5;
-    cout << x << endl;
+    cin >> n;
+    if (n & 1)
+        cout << "odd" << endl;
+    else
+        cout << "even" << endl;
     return 0;
 }

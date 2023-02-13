@@ -11,7 +11,7 @@ int32_t main()
 {
     IOS;
     int n;
-    int x = 2 ^ 3 ^ 4 ^ 5;
-    cout << x << endl;
+    cin >> n;
+    cout << (n & (n - 1)) << endl;
     return 0;
 }
