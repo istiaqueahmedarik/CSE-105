@@ -1,0 +1,1 @@
+{"name":"Local: 5","url":"d:\\coding\\C_problem\\EXAM\\E4\\5.c","tests":[{"id":1676318342362,"input":"6\n7 21 75 5 100 63","output":"25"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\coding\\C_problem\\EXAM\\E4\\5.c","group":"local","local":true}

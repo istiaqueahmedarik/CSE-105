@@ -1,0 +1,1 @@
+{"name":"Local: 3","url":"d:\\coding\\C_problem\\EXAM\\online2\\3.c","tests":[{"id":1676310210990,"input":"+320-70+25-100","output":"175"},{"id":1676310310903,"input":"-2500+1000-500+200","output":"-1800"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\coding\\C_problem\\EXAM\\online2\\3.c","group":"local","local":true}

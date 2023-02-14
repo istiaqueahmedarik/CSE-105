@@ -1,0 +1,1 @@
+{"name":"Local: 2","url":"d:\\coding\\C_problem\\EXAM\\E3\\2.c","tests":[{"id":1676350144533,"input":"3\n4 2 4","output":"true"},{"id":1676350156387,"input":"5\n1 2 3 4 5","output":"false"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\coding\\C_problem\\EXAM\\E3\\2.c","group":"local","local":true}
