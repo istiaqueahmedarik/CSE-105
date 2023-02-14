@@ -1,19 +1,26 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
-int MAX(int arr[], int n)
+void printPairsRecursive(int arr[], int n, int i, int j)
 {
-    if (n == 1)
-        return arr[0];
-    return max(arr[n - 1], MAX(arr, n - 1));
+    if (i == n)
+        return;
+    if (j == n)
+        return printPairsRecursive(arr, n, i + 1, i + 1);
+
+    cout << "(" << arr[i] << ", "
+         << arr[j] << ")"
+         << ", ";
+
+    printPairsRecursive(arr, n, i, j + 1);
 }
+
+// Driver code
 int main()
 {
-    int n;
-    cin >> n;
-    int arr[n];
-    for (int i = 0; i < n; i++)
-    {
-        cin >> arr[i];
-    }
-    cout << MAX(arr, n) << "\n";
+    int arr[] = {1, 2, 3};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    printPairsRecursive(arr, n, 0, 0);
+
+    return 0;
 }
