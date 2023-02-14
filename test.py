@@ -1,21 +1,22 @@
-def max_gcd(n, a):
-    prefix_sum = [0]*(n+1)
-    for i in range(1,n+1):
-        prefix_sum[i] = prefix_sum[i-1] + a[i-1]
-    dp = [[0]*(n+1) for _ in range(n+1)]
-    for i in range(1,n+1):
-        dp[i][1] = prefix_sum[i]
-    for i in range(1,n+1):
-        for j in range(2,i+1):
-            a = dp[i-1][j-1]
-            b = prefix_sum[i]-prefix_sum[i-j]
-            while b:
-                a, b = b, a % b
-            dp[i][j] = a
-    return max(dp[n])
+import math
 
-t = int(input())
-for _ in range(t):
-    n = int(input())
-    a = list(map(int, input().split()))
-    print(max_gcd(n, a))
+MAX_NUM = 1000000000
+
+def sieve_of_eratosthenes(max_num):
+    primes = [True] * (max_num + 1)
+
+    for i in range(2, int(math.sqrt(max_num))+1):
+        if primes[i]:
+            for j in range(i*i, max_num+1, i):
+                primes[j] = False
+
+    return primes
+
+primes = sieve_of_eratosthenes(MAX_NUM)
+
+with open("primes.txt", "w") as file:
+    for i in range(2, MAX_NUM+1):
+        if primes[i]:
+            file.write(str(i) + "\n")
+
+print("Finished writing prime numbers to file.")

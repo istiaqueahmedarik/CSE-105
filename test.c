@@ -1,15 +1,25 @@
 #include <stdio.h>
-int sumDigits(int n)
+void number(int n, int i, int x)
 {
-    return n ? n % 10 + sumDigits(n / 10) : 0;
+    if (n == 0)
+        return;
+    if (i)
+    {
+    }
 }
-int minSum(int n)
+void star(int n, int x)
 {
-    return n < 10 ? n : minSum(sumDigits(n));
+    if (n == 0)
+        return;
+    if (n == x / 2)
+        number(n, 1, n);
+    number(n, 0);
+    printf("\n");
+    star(n - 1, x);
 }
 int main()
 {
     int n;
     scanf("%d", &n);
-    printf("%d", minSum(n));
+    star(n, n);
 }
