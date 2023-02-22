@@ -1,17 +1,18 @@
 #include <bits/stdc++.h>
-#define int long long
-#define endl '\n'
-#define IOS                  \
-    ios::sync_with_stdio(0); \
-    cin.tie(0);              \
-    cout.tie(0);
-
 using namespace std;
-int32_t main()
+
+int main()
 {
-    IOS;
-    int n;
-    int x = 2 ^ 3 ^ 4 ^ 5;
-    cout << x << endl;
+    deque<int> dq;
+    dq.push_back(1);
+    dq.push_front(1);
+    dq.push_back(2);
+    dq.push_front(9);
+    dq.push_back(4);
+    while (!dq.empty())
+    {
+        cout << dq.front() << " ";
+        dq.pop_front();
+    }
     return 0;
 }
