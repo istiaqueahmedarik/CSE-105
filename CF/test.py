@@ -1,30 +1,21 @@
-OPERATORS = {'+': 1, '-': 1, '*': 2, '/': 2, '^': 3}
+import requests
+from bs4 import BeautifulSoup
 
-def infix_to_postfix(expr):
-    output = []
-    operator_stack = []
+# URL of the CSES problem set
+url = "https://cses.fi/problemset/"
 
-    for token in expr.split():
-        if token.isdigit():
-            output.append(token)
-        elif token in OPERATORS:
-            while operator_stack and operator_stack[-1] != '(' and OPERATORS[token] <= OPERATORS[operator_stack[-1]]:
-                output.append(operator_stack.pop())
-            operator_stack.append(token)
-        elif token == '(':
-            operator_stack.append(token)
-        elif token == ')':
-            while operator_stack[-1] != '(':
-                output.append(operator_stack.pop())
-            operator_stack.pop()
+# Make a GET request to the URL and get the HTML content
+response = requests.get(url)
+html_content = response.content
 
-        print(f"{token}: {output} | {operator_stack}")
-    
-    while operator_stack:
-        output.append(operator_stack.pop())
+# Parse the HTML content using BeautifulSoup
+soup = BeautifulSoup(html_content, "html.parser")
 
-    return ' '.join(output)
+# Find all the links that contain "problem/" in the href attribute
+problem_links = soup.find_all("a", href=lambda href: href and "problem/" in href)
 
-infix_expr = input("Enter an infix expression: ")
-postfix_expr = infix_to_postfix(infix_expr)
-print(f"Postfix expression: {postfix_expr}")
+# Extract the problem ID from each link
+problem_ids = [link["href"].split("/")[-1] for link in problem_links]
+
+# Print the problem IDs
+print(problem_ids)

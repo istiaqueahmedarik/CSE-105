@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 #define int long long
+#define float double
 #define endl '\n'
 #define IOS                  \
     ios::sync_with_stdio(0); \

@@ -1,33 +1,36 @@
 #include <stdio.h>
+void star_on_line(int n)
+{
+    if (n == 0)
+        return;
+    printf("* ");
+    star_on_line(n - 1);
+}
 void space(int n)
+{
+    if (n <= 0)
+        return;
+    printf(" ");
+    space(n - 1);
+}
+void star(int n, int i)
 {
     if (n == 0)
         return;
     space(n - 1);
-    printf(" ");
-}
-void star(int r)
-{
-    if (r == 0)
-        return;
-    star(r - 1);
-    printf("*");
-}
-void print(int n, int r)
-{
-    if (n == 0)
-        return;
-    space(n);
-    star(2 * r + 1);
+    star_on_line(i);
     printf("\n");
-    print(n - 1, r + 1);
-    space(n);
-    star(2 * r + 1);
-    printf("\n");
+    star(n - 1, i + 1);
+    if (n != 1)
+    {
+        space(n - 1);
+        star_on_line(i);
+        printf("\n");
+    }
 }
 int main()
 {
     int n;
     scanf("%d", &n);
-    print(n, 0);
+    star(n, 1);
 }

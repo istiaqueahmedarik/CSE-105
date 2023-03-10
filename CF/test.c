@@ -1,92 +1,46 @@
-#include<stdio.h>
-#include<string.h>
+#include <stdio.h>
 int main()
 {
-    int sum,carry=0,j;
-    char str1[100],str2[100],str3[100];
-    gets(str1);
-    gets(str2);
-    int l1=strlen(str1);
-    int l2=strlen(str2);
-    if(l1==l2)
+    int s, n;
+    scanf("%d %d", &s, &n);
+    int arrX[n];
+    int arrY[n];
+    int lost = 0;
+    for (int i = 0; i < n; i++)
     {
-        for(int i=l2-1;i>=0;i--)
-        {
-            sum=(str1[i]-'0')+(str2[i]-'0')+carry;
-            carry=0;
-            if(sum>9)
-            {
-                carry=sum/10;
-                sum=sum%10;
-            }
-            str3[j]=sum+'0';
-            j++;
-        }
-        if(carry!=0) str3[j]=carry+'0';
-        puts(strrev(str3));
+        scanf("%d %d", &arrX[i], &arrY[i]);
     }
-    else if(l1>l2)
-    {
-        for(int i=l2-1;i>=0;i--)
-        {
 
-            sum=(str1[l1-1]-'0')+(str2[i]-'0')+carry;
-            l1--;
-            carry=0;
-            if(sum>9)
-            {
-                carry=sum/10;
-                sum=sum%10;
-            }
-            str3[j]=sum+'0';
-            j++;
-        }
-        for(int i=l1;i>=0;i--)
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n - i; j++)
         {
-            sum=str1[i]-'0'+carry;
-            carry=0;
-            if(sum>9)
+            if (arrX[j] > arrX[j + 1])
             {
-                carry=sum/10;
-                sum=sum%10;
+                int temp1 = arrY[j];
+                int temp2 = arrX[j];
+                arrY[j] = arrY[j + 1];
+                arrX[j] = arrX[j + 1];
+                arrX[j + 1] = temp2;
+                arrY[j + 1] = temp1;
             }
-            str3[j]=sum+'0';
-            j++;
         }
-        puts(strrev(str3));
     }
-    //l2>l1
+
+    for (int i = 0; i < n; i++)
+    {
+        if (s > arrX[i])
+        {
+            s += arrY[i];
+        }
+        else
+        {
+            lost = 1;
+        }
+    }
+
+    if (lost == 0)
+        printf("YES\n");
     else
-    {
-        for(int i=l1-1;i>=0;i--)
-        {
-            sum=(str1[i]-'0')+(str2[l2-1]-'0')+carry;
-            l2--;
-            carry=0;
-            if(sum>9)
-            {
-                carry=sum/10;
-                sum=sum%10;
-            }
-            str3[j]=sum+'0';
-            j++;
-        }
-        for(int i=l2-1;i>=0;i--)
-        {
-            sum=carry+(str2[i]-'0');
-            carry=0;
-            if(sum>9)
-            {
-                carry=sum/10;
-                sum=sum%10;
-            }
-            str3[j]=sum+'0';
-            j++;
-
-        }
-        if(carry!=0) str3[j]=carry+'0';
-        puts(strrev(str3));
-    }
-
-    return 0;
+        printf("NO\n");
 }

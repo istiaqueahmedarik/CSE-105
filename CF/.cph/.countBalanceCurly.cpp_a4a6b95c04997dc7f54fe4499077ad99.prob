@@ -1,0 +1,1 @@
+{"name":"Local: countBalanceCurly","url":"d:\\coding\\C_problem\\CF\\countBalanceCurly.cpp","tests":[{"id":1677858917459,"input":"{}{}{}{{}}","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\coding\\C_problem\\CF\\countBalanceCurly.cpp","group":"local","local":true}
