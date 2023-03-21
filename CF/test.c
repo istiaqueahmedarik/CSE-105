@@ -1,46 +1,28 @@
 #include <stdio.h>
+#include <string.h>
 int main()
 {
-    int s, n;
-    scanf("%d %d", &s, &n);
-    int arrX[n];
-    int arrY[n];
-    int lost = 0;
-    for (int i = 0; i < n; i++)
+    char s[10000];
+    gets(s);
+    for (int i = 0; i < strlen(s); i++)
     {
-        scanf("%d %d", &arrX[i], &arrY[i]);
-    }
-
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < n - i; j++)
+        if (s[i] != ' ' && s[i] >= 'a' && s[i] <= 'z')
         {
-            if (arrX[j] > arrX[j + 1])
-            {
-                int temp1 = arrY[j];
-                int temp2 = arrX[j];
-                arrY[j] = arrY[j + 1];
-                arrX[j] = arrX[j + 1];
-                arrX[j + 1] = temp2;
-                arrY[j + 1] = temp1;
-            }
-        }
-    }
-
-    for (int i = 0; i < n; i++)
-    {
-        if (s > arrX[i])
-        {
-            s += arrY[i];
+            printf("%c", s[i]);
         }
         else
         {
-            lost = 1;
+            while (s[i] == ' ' || (s[i] != ' ' && (s[i] < 'a' || s[i] > 'z')))
+            {
+                if (s[i] != ' ')
+                {
+                    printf("%c", s[i]);
+                }
+                i++;
+            }
+            printf(" ");
+            i--;
         }
     }
-
-    if (lost == 0)
-        printf("YES\n");
-    else
-        printf("NO\n");
+    return 0;
 }

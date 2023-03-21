@@ -1,1 +1,1 @@
-{"name":"Local: test","url":"d:\\coding\\C_problem\\CF\\test.c","tests":[{"id":1676036643912,"input":"2 3\n70 400\n100 2\n1 99","output":"A"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\coding\\C_problem\\CF\\test.c","group":"local","local":true}
+{"name":"Local: test","url":"d:\\coding\\C_problem\\CF\\test.c","tests":[{"id":1676036643912,"input":"galileo  was  born  in  pisa    .","output":"A"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\coding\\C_problem\\CF\\test.c","group":"local","local":true}
