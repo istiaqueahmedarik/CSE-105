@@ -1,31 +1,85 @@
 #include <bits/stdc++.h>
 using namespace std;
-int visited[1000];
-vector<int> adj[1000];
-void dfs(int node)
+class grade
 {
-    visited[node] = 1;
-    cout << node << " ";
-    for (int i = 0; i < adj[node].size(); i++)
+public:
+    long int id, code, cls;
+    double ct1, ct2, ct3, mid, A, B;
+    char grade;
+    void attendence()
     {
-        int next = adj[node][i];
-        if (visited[next] == 0)
-        {
-            dfs(next);
-        }
+        cout << "Attendance Mark: " << ((cls / 42) * 15) << endl;
     }
-}
+    void performance()
+    {
+        double perf = (((mid / 30) * 15) - (42 - cls));
+        if (perf < 0)
+        {
+            perf = 0;
+            cout << "Performance Mark: " << perf << endl;
+        }
+        else
+            cout << "Performance Mark: " << perf << endl;
+    }
+    void ct()
+    {
+        cout << "Best 2 CT Mark (out of 60): " << ((60 * ((ct1 + ct2 + ct3) - min({ct1, ct2, ct3}))) / 40) << endl;
+    }
+    void gr()
+    {
+        double perf = (((mid / 30) * 15) - (42 - cls));
+        if (perf < 0)
+            perf = 0;
+        double res = ((cls / 42) * 15) + perf + ((60 * ((ct1 + ct2 + ct3) - min({ct1, ct2, ct3}))) / 40) + mid + A + B;
+        if (res >= 240)
+            grade = 'A';
+        else if (res >= 200)
+            grade = 'B';
+        else if (res >= 160)
+            grade = 'C';
+        else if (res >= 120)
+            grade = 'D';
+        else if (res < 120)
+            grade = 'F';
+        else
+            grade = 'E';
+        cout << "Total (out of 300): " << res << endl;
+        // 202214049 Attained the grade: C in 103 with total marks (out of 300): 170.143
+        cout << id << " Attained the grade: " << grade << " in " << code << " with total marks (out of 300): " << res << endl;
+    }
+};
 int main()
 {
-    int node, edge;
-    cin >> node >> edge;
-    for (int i = 0; i < edge; i++)
+    while (1)
     {
-        int u, v;
-        cin >> u >> v;
-        adj[u].push_back(v);
-        adj[v].push_back(u);
+        grade s;
+        cout << "Enter Roll: ";
+        cin >> s.id;
+        cout << "Enter Course code: ";
+        cin >> s.code;
+        cout << "Enter Number of classes present in (out of 42): ";
+        cin >> s.cls;
+        cout << "Enter CT 1 marks (out of 20, will be converted to 30): ";
+        cin >> s.ct1;
+        cout << "Enter CT 2 marks (out of 20, will be converted to 30): ";
+        cin >> s.ct2;
+        cout << "Enter CT 3 marks (out of 20, will be converted to 30): ";
+        cin >> s.ct3;
+        cout << "Enter Mid marks (out of 30): ";
+        cin >> s.mid;
+        cout << "Enter Final(Sec A) Marks (out of 90): ";
+        cin >> s.A;
+        cout << "Enter Final(Sec B) Marks (out of 90): ";
+        cin >> s.B;
+        cout << endl
+             << endl
+             << "After calculation " << endl
+             << endl;
+        s.attendence();
+        s.performance();
+        s.ct();
+        s.gr();
     }
-    dfs(2);
-    return 0;
+    cout << endl
+         << endl;
 }
