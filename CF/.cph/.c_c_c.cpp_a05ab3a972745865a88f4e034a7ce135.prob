@@ -1,0 +1,1 @@
+{"name":"Local: c_c_c","url":"d:\\coding\\C_problem\\CF\\c_c_c.cpp","tests":[{"id":1680020729460,"input":"4\nRLRL\n2 4 6 10","output":"1"},{"id":1680020748018,"input":"3\nLLR\n40 50 60","output":"-1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\coding\\C_problem\\CF\\c_c_c.cpp","group":"local","local":true}

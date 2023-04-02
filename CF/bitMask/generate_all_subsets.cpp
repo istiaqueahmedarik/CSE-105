@@ -7,6 +7,7 @@
     cout.tie(0);
 
 using namespace std;
+
 int32_t main()
 {
     IOS;
